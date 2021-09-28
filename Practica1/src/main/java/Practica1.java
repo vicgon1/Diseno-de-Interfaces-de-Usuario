@@ -140,14 +140,10 @@ public class Practica1 extends javax.swing.JFrame {
 
     private void Botón1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Botón1
         
-        //pillamos as variables dos espacios de texto e parseámolas
         float euros= Float.parseFloat(Valor1.getText());
         float cambio= Float.parseFloat(ValorCambio.getText());
-        //facemos a operacion para a conversion
         float ValorD = (euros*cambio);
-        //pasamos o valor da operacion(float ) a un String e que solo poña 2 decimales
         String resulD = String.format("%.2f", ValorD);
-        //sacamolo no espacio de texto correspondiente
         Valor2.setText(resulD);
         
         
@@ -157,11 +153,8 @@ public class Practica1 extends javax.swing.JFrame {
     
         float dolares= Float.parseFloat(Valor3.getText());
         float cambio= Float.parseFloat(ValorCambio.getText());
-      
-    //igual que no primeiro
         float ValorE= (dolares/cambio);
-        String resulE=String.format("%.2f", ValorE);
-       
+        String resulE=String.format("%.2f", ValorE);   
         Valor4.setText(resulE);
         
     }//GEN-LAST:event_Botón2ActionPerformed
