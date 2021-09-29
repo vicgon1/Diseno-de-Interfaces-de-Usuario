@@ -44,6 +44,7 @@ public class Practica1 extends javax.swing.JFrame {
         Botón2 = new javax.swing.JButton();
         Etiqueta5 = new javax.swing.JLabel();
         Valor4 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +72,9 @@ public class Practica1 extends javax.swing.JFrame {
 
         Etiqueta5.setText("Euros:");
 
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Solo admite números positivos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,14 +88,15 @@ public class Practica1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 53, Short.MAX_VALUE)
-                                .addComponent(Etiqueta1))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(Etiqueta4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Valor1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(Valor3))))
+                                    .addComponent(Valor3)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 29, Short.MAX_VALUE)
+                                .addComponent(Etiqueta1)
+                                .addGap(24, 24, 24)))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -109,7 +114,11 @@ public class Practica1 extends javax.swing.JFrame {
                                         .addGap(38, 38, 38)
                                         .addComponent(Valor4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(ValorCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                        .addContainerGap(30, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(205, 205, 205))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +127,9 @@ public class Practica1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Etiqueta1)
                     .addComponent(ValorCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Etiqueta2)
                     .addComponent(Valor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -154,7 +165,7 @@ public class Practica1 extends javax.swing.JFrame {
         float dolares= Float.parseFloat(Valor3.getText());
         float cambio= Float.parseFloat(ValorCambio.getText());
         float ValorE= (dolares/cambio);
-        String resulE=String.format("%.2f", ValorE);   
+        String resulE=String.format("%.2f", ValorE);
         Valor4.setText(resulE);
         
     }//GEN-LAST:event_Botón2ActionPerformed
@@ -212,5 +223,6 @@ public class Practica1 extends javax.swing.JFrame {
     private javax.swing.JTextField Valor3;
     private javax.swing.JTextField Valor4;
     private javax.swing.JTextField ValorCambio;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
