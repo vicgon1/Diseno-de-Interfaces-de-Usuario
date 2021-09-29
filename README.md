@@ -1,2 +1,2 @@
-# Dise-o-de-Interfaces-de-Usuario
+# Diseno-de-Interfaces-de-Usuario
 Práctica 1
