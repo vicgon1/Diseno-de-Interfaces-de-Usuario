@@ -4,6 +4,12 @@
  */
 package com.mycompany.practica9;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+
 /**
  *
  * @author Víctor
@@ -15,6 +21,13 @@ public class Practica9 extends javax.swing.JFrame {
      */
     public Practica9() {
         initComponents();
+        
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
     }
 
     /**
@@ -30,7 +43,7 @@ public class Practica9 extends javax.swing.JFrame {
         panelLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        usuarioPwd = new javax.swing.JTextField();
+        usuarioText = new javax.swing.JTextField();
         buttonLogin = new javax.swing.JButton();
         textPwd = new javax.swing.JPasswordField();
         panelVisual = new javax.swing.JPanel();
@@ -52,6 +65,11 @@ public class Practica9 extends javax.swing.JFrame {
         jLabel2.setText("Contraseña: ");
 
         buttonLogin.setText("Login");
+        buttonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
@@ -66,8 +84,8 @@ public class Practica9 extends javax.swing.JFrame {
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textPwd, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                    .addComponent(usuarioPwd))
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addComponent(usuarioText))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,14 +93,14 @@ public class Practica9 extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(usuarioPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usuarioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(textPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(buttonLogin)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         panelVisual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -93,12 +111,27 @@ public class Practica9 extends javax.swing.JFrame {
 
         goupSelect.add(selecSimple);
         selecSimple.setText("Simple");
+        selecSimple.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecSimpleActionPerformed(evt);
+            }
+        });
 
         goupSelect.add(selecInter);
         selecInter.setText("Intervalo");
+        selecInter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecInterActionPerformed(evt);
+            }
+        });
 
         goupSelect.add(selecMulti);
         selecMulti.setText("Múltiples Intervalos");
+        selecMulti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecMultiActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Modos de selección:");
 
@@ -147,7 +180,7 @@ public class Practica9 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelVisual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -165,6 +198,44 @@ public class Practica9 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
+         String user = usuarioText.getText();
+         String pass = String.valueOf(textPwd.getPassword());
+        
+
+            ConectBD dbCon = new ConectBD();
+            
+        try {
+            dbCon.connect(user, pass);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Practica9.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Practica9.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+        
+    }//GEN-LAST:event_buttonLoginActionPerformed
+
+    private void selecSimpleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecSimpleActionPerformed
+        listaTablas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    }//GEN-LAST:event_selecSimpleActionPerformed
+
+    private void selecInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecInterActionPerformed
+        listaTablas.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+    }//GEN-LAST:event_selecInterActionPerformed
+
+    private void selecMultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecMultiActionPerformed
+        listaTablas.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+    }//GEN-LAST:event_selecMultiActionPerformed
+
+    
+     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int confirm = JOptionPane.showConfirmDialog(rootPane, "¿Desea salir de la aplicación?", "Salir aplicación", JOptionPane.YES_NO_OPTION);
+        
+        if(confirm == JOptionPane.YES_OPTION){
+            this.dispose();
+        }
+     }
     /**
      * @param args the command line arguments
      */
@@ -217,6 +288,6 @@ public class Practica9 extends javax.swing.JFrame {
     private javax.swing.JToggleButton selecMulti;
     private javax.swing.JToggleButton selecSimple;
     private javax.swing.JPasswordField textPwd;
-    private javax.swing.JTextField usuarioPwd;
+    private javax.swing.JTextField usuarioText;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,7 +30,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
               <Component id="panelLogin" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="121" max="32767" attributes="0"/>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -73,9 +73,9 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="buttonLogin" min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="textPwd" pref="87" max="32767" attributes="0"/>
-                      <Component id="usuarioPwd" alignment="0" max="32767" attributes="0"/>
+                      <Component id="usuarioText" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="150" max="32767" attributes="0"/>
+                  <EmptySpace pref="182" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -85,16 +85,16 @@
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="usuarioPwd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="usuarioText" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textPwd" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="buttonLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -110,12 +110,15 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="usuarioPwd">
+        <Component class="javax.swing.JTextField" name="usuarioText">
         </Component>
         <Component class="javax.swing.JButton" name="buttonLogin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLoginActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="textPwd">
         </Component>
@@ -221,6 +224,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Simple"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecSimpleActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="selecInter">
           <Properties>
@@ -229,6 +235,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Intervalo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecInterActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="selecMulti">
           <Properties>
@@ -237,6 +246,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xfa;ltiples Intervalos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selecMultiActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
